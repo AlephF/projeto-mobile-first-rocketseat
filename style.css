@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches',sans-serif;
+  --ff-texting: 'Palanquin',sans-serif;
+
+  --bg-primary: #EFF1FF;
+  --bg-header: #8E9AAF;
+  --bg-header-sm: #CBC0D3;
+  --bg-texting: #FEEAFA;
+
+  --fc-primary: #FFFFFF;
+  --fc-secondary: #4A4E69;
+  --fc-texting: #23053A;
+
+
+  font-size: 62.5%;
+  --fs-heading: 4rem;
+  --fs-body: 2rem;
+}
+
+body{
+  background-color: var(--bg-primary);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: var(--bg-header);
+  padding-block-end: 2.9rem;
+}
+
+header img {
+  height: 13.7rem;
+  margin: 3.2rem auto;
+}
+
+header h1 {
+  text-align: center;
+  text-shadow: 0px 2px 2px #00000040;
+  font-family: var(--ff-heading);
+  font-size: var(--fs-heading);
+  font-weight: 400;
+
+  background-color: var(--bg-header-sm);
+  color: var(--fc-primary);
+}
+
+header img, header h1 {
+  animation: topdown 700ms;
+}
+
+main {
+  margin: 1.4rem 3.2rem 6.0rem;
+}
+
+main p {
+  text-align: center;
+  font-family: var(--ff-texting);
+  font-size: var(--fs-body);
+  font-weight: 400;
+
+  color: var(--fc-texting);
+
+  margin-bottom: 6.3rem;
+}
+
+#menu {
+  display: grid;
+  gap: 3.6rem;
+}
+
+.card {
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
+  animation: downtop 700ms 350ms backwards;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+#menu:hover .card:not(:hover) {
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+.card img {
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+#menu .card:nth-child(odd) img{
+  height: 25rem;
+}
+
+#menu .card:nth-child(even) img {
+  height: 45rem;
+}
+
+.card span {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  border-radius: 20px;
+  padding: 0 2.6rem;
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+
+  
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  letter-spacing: 0.15rem;
+
+  background-color: var(--bg-texting);
+  color: var(--fc-secondary);
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  :root {
+    --fs-heading: 5.5rem;
+  }
+
+  main {
+    margin: 1.4rem 6.2rem 8.0rem;
+  }
+
+  header img {
+    height: 20rem;
+  }
+
+  #menu {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  #menu > .card:nth-child(1),
+  #menu > .card:nth-child(3) {
+    grid-row: 1;
+  }
+  
+  #menu > .card:nth-child(2),
+  #menu > .card:nth-child(4) {
+    grid-row: 2;
+  }
+}
+
+@media (min-width: 1250px) {
+  #menu {
+    max-width: 123rem;
+    margin: 0 auto;
+  }
+
+  p {
+    max-width: 123rem;
+    margin: 0 auto;
+  }
+
+  .card:hover {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
